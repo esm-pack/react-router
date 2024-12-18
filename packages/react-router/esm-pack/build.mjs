@@ -17,6 +17,10 @@ export const buildEsm = async (inputPath, outputPath) => {
     sourcemap: false,
     format: "esm",
     target: "esnext",
+    define: {
+      __DEV__: JSON.stringify(false),
+    },
+    external: ["react", "react-dom"],
     banner: {
       js: `/**\n${license
         .trim()
